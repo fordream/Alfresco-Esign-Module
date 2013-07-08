@@ -1,0 +1,8 @@
+package com.ecoit.ca.signature;
+
+
+public interface FileSigner {
+	public String signFile();
+
+	public boolean verifyFile();
+}

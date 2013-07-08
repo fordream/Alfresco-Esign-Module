@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/caquangninh/!svn/ver/105/trunk/applet/src/com/ecoit/ca/signature
+END
+BasicFormSigner.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/caquangninh/!svn/ver/109/trunk/applet/src/com/ecoit/ca/signature/BasicFormSigner.java
+END
+SignContent.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/caquangninh/!svn/ver/105/trunk/applet/src/com/ecoit/ca/signature/SignContent.java
+END
+ObjectFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/caquangninh/!svn/ver/105/trunk/applet/src/com/ecoit/ca/signature/ObjectFactory.java
+END
+SigningModules.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/caquangninh/!svn/ver/105/trunk/applet/src/com/ecoit/ca/signature/SigningModules.java
+END
