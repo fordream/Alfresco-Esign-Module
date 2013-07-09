@@ -10,8 +10,6 @@ package java.com.esign;
  * implementing this interface should have a reference of this person's
  * Certificate and PrivateKey.
  * 
- * @author James
- * 
  * @param <T>
  *            the type of data.
  * 
