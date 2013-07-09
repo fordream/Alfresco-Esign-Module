@@ -1,5 +1,4 @@
-package com.ecoit.ca.signature;
-
+package java.com.esign;
 
 public interface FileSigner {
 	public String signFile();

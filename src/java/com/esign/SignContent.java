@@ -1,5 +1,10 @@
 package java.com.esign;
 
+/*
+ * Project: Alfresco Esign Module , part of the Creative Summer
+ * License   : GNU General Public License, version 2 (http://www.gnu.org/licenses/gpl-2.0.html)
+ */
+
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
 
@@ -7,7 +12,6 @@ import javax.xml.crypto.dsig.XMLSignature;
 
 /**
  * Represents the content to be signed and verified.
- * @author James
  *
  * @param <T> The object type of content.
  * 
