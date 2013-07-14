@@ -1,0 +1,20 @@
+<alfresco-config>
+   
+    <config evaluator="string-compare" condition="DocLibCustom">   
+        <dependencies>
+            <!-- Geotag action dependencies -->
+            <css src="/extras/components/documentlibrary/alfresco-esign.css" />
+            <js src="/extras/components/documentlibrary/alfresco-esign.js" />
+        </dependencies> 
+    </config>
+	
+    <config evaluator="string-compare" condition="DocLibActions">
+        <actions>
+            <!-- Execute script action definition -->
+            <action id="org_sharextras_esign-action" type="javascript" label="actions.document.esign-action" icon="../../../extras/components/documentlibrary/alfresco-esign">
+                <param name="function">onActionAlfrescoEsign</param>
+            </action>
+        </actions>
+    </config>
+
+</alfresco-config>

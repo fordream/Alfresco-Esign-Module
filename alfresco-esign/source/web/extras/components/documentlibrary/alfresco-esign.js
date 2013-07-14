@@ -32,7 +32,7 @@
     */
    YAHOO.Bubbling.fire("registerAction",
    {
-      actionName: "onEsignAction",
+      actionName: "onActionAlfrescoEsign",
       fn: function DL_onActionGeotag(asset)
       {
           // We could also call alfresco/api/action/script/formprocessor with JSON params alf_destination and prop_script-ref

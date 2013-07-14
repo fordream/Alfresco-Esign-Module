@@ -1,0 +1,5 @@
+<webscript>
+	<shortname>Esign Action</shortname>
+	<description>Sign on a document</description>
+	<url>/extras/modules/documentlibrary/esign-action</url>
+</webscript>
