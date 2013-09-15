@@ -33,13 +33,13 @@
           // We could also call alfresco/api/action/script/formprocessor with JSON params alf_destination and prop_script-ref
           var nodeRef = asset.nodeRef,
              displayName = asset.displayName,
-             actionUrl = Alfresco.constants.PROXY_URI + $combine("slingshot/doclib/action/execute-script/node", nodeRef.replace(":/", ""));
+             actionUrl = Alfresco.constants.PROXY_URI + $combine("slingshot/doclib/action/esign-action/node", nodeRef.replace(":/", ""));
 
           
           // Always create a new instance
           this.modules.executeScript = new Alfresco.module.SimpleDialog(this.id + "-executeScript").setOptions(
           {
-             width: "30em",
+             width: "40em",
              templateUrl: Alfresco.constants.URL_SERVICECONTEXT + "extras/modules/documentlibrary/alfresco-esign",
              actionUrl: actionUrl,
              firstFocus: this.id + "-executeScript-script",
@@ -47,10 +47,11 @@
              {
                 fn: function dlA_onActionExecuteScript_success(response)
                 {
-                   Alfresco.util.PopupManager.displayMessage(
-                   {
-                      text: this.msg("message.execute-esign.success", displayName)
-                   });
+                	if(response){                		
+                		Alfresco.util.PopupManager.displayPrompt({
+                		    text: response.message
+                		});
+                	}                   
                 },
                 scope: this
              },
@@ -60,7 +61,7 @@
                 {
                    Alfresco.util.PopupManager.displayMessage(
                    {
-                      text: this.msg("message.execute-esign.failure", displayName)
+                      text: this.msg("message.execute-esign.error", displayName)
                    });
                 },
                 scope: this

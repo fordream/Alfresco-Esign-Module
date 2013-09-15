@@ -8,7 +8,10 @@
 *.js~
 *.css~
 *.ftl~
-
+*.java~
+*.txt~
+*.pfx~
+*.docx~
 # Package Files #
 *.war
 *.ear

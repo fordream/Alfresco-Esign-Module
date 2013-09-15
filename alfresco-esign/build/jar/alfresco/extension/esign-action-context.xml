@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+
+<beans>
+	<bean
+		id="webscript.org.alfresco.slingshot.documentlibrary.action.esign-action.post"
+		class="vn.vfossa.webscript.EsignAction" parent="webscript">
+		<!-- <property name="mutableAuthenticationDao" ref="authenticationDao" 
+			/> <property name="contentUsageService" ref="contentUsageImpl" /> <property 
+			name="actionService" ref="actionService" /> <property name="mailSender" ref="mailSender" 
+			/> <property name="personService" ref="personService"/> <property name="authorityService" 
+			ref="authorityService"/> <property name="authenticationService" ref="authenticationService"/> 
+			<property name="personService" ref="repositoryHelper" /> <property name="serviceRegistry" 
+			ref="ServiceRegistry"/> <property name="nodeService" ref="NodeService"/> 
+			<property name="searchService" ref="SearchService"/> <property name="namespaceService" 
+			ref="NamespaceService"/> <property name="permissionService" ref="PermissionService" 
+			/> <property name="mutableAuthenticationDao" ref="authenticationDao"/> <property 
+			name="dictionaryService" ref="dictionaryService"/> <property name="tenantAdminService" 
+			ref="tenantAdminService"/> <property name="transactionHelper" ref="retryingTransactionHelper"/> 
+			<property name="mailService" ref="mailService"/> -->
+
+	</bean>
+</beans>
