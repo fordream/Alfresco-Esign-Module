@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Alfresco-Esign-Module</name>
+	<name>alfresco-esign</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>lib/ml-ant-http-1.1.1.jar</name>
-			<type>1</type>
-			<location>/home/thinhnk/workspace/alfresco-esign/Alfresco-Esign-Module/alfresco-esign/lib/ml-ant-http-1.1.1.jar</location>
-		</link>
-		<link>
-			<name>lib/yui-compressor-ant-task-0.5.jar</name>
-			<type>1</type>
-			<location>/home/thinhnk/workspace/alfresco-esign/Alfresco-Esign-Module/alfresco-esign/lib/yui-compressor-ant-task-0.5.jar</location>
-		</link>
-		<link>
-			<name>lib/yuicompressor-2.4.2.jar</name>
-			<type>1</type>
-			<location>/home/thinhnk/workspace/alfresco-esign/Alfresco-Esign-Module/alfresco-esign/lib/yuicompressor-2.4.2.jar</location>
-		</link>
-		<link>
-			<name>source/web/extras/components/documentlibrary/alfresco-esign-16.gif</name>
-			<type>1</type>
-			<location>/home/thinhnk/workspace/alfresco-esign/Alfresco-Esign-Module/alfresco-esign/source/web/extras/components/documentlibrary/alfresco-esign-16.gif</location>
-		</link>
-		<link>
-			<name>source/web/extras/components/documentlibrary/alfresco-esign-16.png</name>
-			<type>1</type>
-			<location>/home/thinhnk/workspace/alfresco-esign/Alfresco-Esign-Module/alfresco-esign/source/web/extras/components/documentlibrary/alfresco-esign-16.png</location>
-		</link>
-	</linkedResources>
 </projectDescription>

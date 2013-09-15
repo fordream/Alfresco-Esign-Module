@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Audit Dashlet</name>
+	<name>alfresco-esign</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>res/mhst1304.pfx</name>
+			<type>1</type>
+			<location>E:/Work/eclipse/DigitalSign/res/mhst1304.pfx</location>
+		</link>
+	</linkedResources>
 </projectDescription>
