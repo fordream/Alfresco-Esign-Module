@@ -23,8 +23,8 @@ Mentors: Chuyên viên phát triển Alfresco và ký số, Công ty Cổ phần
 Dự án khởi động ngày 21/5/2013. Cập nhật trang wiki và tải mã nguồn để có thông tin chi tiết về dự án. Mọi yêu cầu
 về dự án xin gửi về email: nguyendinhnien [at] hotmail [dot] com
 
-Cập nhật ngày 23/5/2013: Dự án đang trong giai đoạn phân tích và thiết kế
-Cập nhật ngày 1/7/2013: Dự án đang trong giai đoạn thực hiện
+Cập nhật 16/9/2013:
+Dự án chưa hoàn thiện
 
 Kho mã nguồn bao gồm:
 Documentations: Chứa tài liệu phân tích và thiết kế dự án
