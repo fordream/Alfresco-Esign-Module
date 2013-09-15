@@ -1,4 +1,0 @@
-# Custom Execute Script action
-actions.document.action-esign=Sign Document
-message.execute-esign.success=SIGN SUCCESSFULLY
-message.execute-script.failure=FAILED TO SIGN
