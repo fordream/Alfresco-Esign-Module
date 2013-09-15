@@ -1,4 +1,14 @@
 *.class
+*.gitignore~
+*.md~
+*.classpath~
+*.project~
+*.properties~
+*.xml~
+*.js~
+*.css~
+*.ftl~
+
 # Package Files #
 *.war
 *.ear
