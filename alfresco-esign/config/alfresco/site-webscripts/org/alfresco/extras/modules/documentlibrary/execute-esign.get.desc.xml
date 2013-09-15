@@ -1,0 +1,5 @@
+<webscript>
+  <shortname>Digital Signature Action</shortname>
+  <description>Sign Document</description>
+  <url>/extras/modules/documentlibrary/alfresco-esign</url>
+</webscript>
