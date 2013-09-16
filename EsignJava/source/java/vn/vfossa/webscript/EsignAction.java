@@ -23,6 +23,7 @@ package vn.vfossa.webscript;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.json.JSONObject;
 import org.springframework.extensions.webscripts.AbstractWebScript;
@@ -35,6 +36,7 @@ public class EsignAction extends AbstractWebScript {
 	public void execute(WebScriptRequest req, WebScriptResponse res)
 			throws IOException {				
 		try {
+			logger.setLevel(Level.ALL);
 			String certpass = null, prkeypass = null, field = null;
 			File certificate = null;
 			// Create response json object
@@ -66,15 +68,15 @@ public class EsignAction extends AbstractWebScript {
 			
 			if(!certificate.isFile()){
 				obj.put("message", "Require Certificate!");
-				logger.error("This is not a file");
+				logger.info("This is not a file");
 			}
 			else if( certpass.length() == 0){
 				obj.put("message", "Require Certificate Password!");
-				logger.error("Where is certificate password?");
+				logger.info("Where is certificate password?");
 			}
 			else if( prkeypass.length() == 0){
 				obj.put("message", "Require Privatekey Password!");
-				logger.error("Where is certificate password?");
+				logger.info("Where is certificate password?");
 			}
 			else{
 				obj.put("success", true);
@@ -83,9 +85,9 @@ public class EsignAction extends AbstractWebScript {
 			
 			// build a JSON string and send it back
 			String jsonString = obj.toString();
-			logger.error(jsonString);
+			logger.info(jsonString);
 			System.out.println("I was called!");
-			res.setContentType(res.JSON_FORMAT);
+			res.setContentType("application/json");
 			res.getWriter().write(jsonString);
 			
 		} catch (Exception e) {
