@@ -20,18 +20,75 @@ E-Learning GateIn System is e-learning system based on GateIn Portal.
 
 package vn.vfossa.webscript;
 
-import java.io.File;
-import java.io.IOException;
+import vn.vfossa.signature.*;
+import vn.vfossa.cert.*;
+import vn.vfossa.utils.*;
 
-import org.apache.log4j.Level;
+import java.lang.Exception;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.File;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.security.PrivateKey;
+import java.security.cert.X509Certificate;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.Date;
+import java.lang.Thread;
+
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
+import org.apache.log4j.Level;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.extensions.webscripts.AbstractWebScript;
+import org.springframework.extensions.webscripts.WebScriptException;
 import org.springframework.extensions.webscripts.WebScriptRequest;
 import org.springframework.extensions.webscripts.WebScriptResponse;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.alfresco.jlan.server.filesys.FileName;
+import org.alfresco.repo.security.authentication.MutableAuthenticationDao;
+import org.alfresco.repo.security.authentication.AuthenticationUtil;
+import org.alfresco.service.cmr.security.MutableAuthenticationService;
+import org.alfresco.service.cmr.usage.ContentUsageService;
+import org.alfresco.repo.action.executer.MailActionExecuter;
+import org.alfresco.service.cmr.action.Action;
+import org.alfresco.service.cmr.action.ActionService;
+import org.springframework.extensions.webscripts.ScriptMessage;
 
 public class EsignAction extends AbstractWebScript {
-	private Logger logger = Logger.getLogger(EsignAction.class);
+	private Logger logger = Logger.getLogger(EsignAction.class);	
+	private ActionService actionService;
+	public void setActionService(ActionService actionService){
+		this.actionService = actionService;
+	}
+	/**
+     * node service object
+     */
+    public NodeService nodeService;
+    /**
+     * content service object
+     */
+    public ContentService contentService;
+    public ContentReader actionedUponContentReader;
+    protected ServiceRegistry serviceRegistry;
+    protected String newPassword;
+
+    public void setServiceRegistry(ServiceRegistry serviceRegistry) {
+        this.serviceRegistry = serviceRegistry;
+    }
+
+    public void setNodeService(NodeService nodeService) {
+        this.nodeService = nodeService;
+    }
+
+   public void setContentService(ContentService contentService) {
+        this.contentService = contentService;
+    }
+
 	@Override
 	public void execute(WebScriptRequest req, WebScriptResponse res)
 			throws IOException {				
@@ -80,10 +137,30 @@ public class EsignAction extends AbstractWebScript {
 			}
 			else{
 				obj.put("success", true);
-				obj.put("message", "Accept Request");
+				obj.put("message", "File is singed");
+				VnCertificate vncert = new VnCertificate(certificate, certpass, prkeypass);
+				String nodeRefString = req.getParameter("nodeRef");
+				NodeRef nodeRef = new NodeRef(nodeRefString);
+				byte[] data = getNodeContent(nodeRefer);
+				File signFile = BytesToFile.bytesToFile(data);
+				String fileName = signFile.getName();
+				if(fileName.isOOXML()){
+					OOXMLContent ooxmlContent = new OOXMLContent(signFile.getAbsoluteFile());
+					ooxmlContent.addSignature(vncert.getCert(), vncert.getPrivateKey());
+				}
+				else if( filenName.isPdf()){
+					PDFContent pdfContent = new OOXMLContent(signFile.getAbsoluteFile());
+					pdfContent.addSignature(vncert.getCert(), vncert.getPrivateKey());
+				}				
 			}
 			
 			// build a JSON string and send it back
+			Action mailAction = this.actionService.createAction(MailActionExecuter.NAME);
+			mailAction.setParameterValue(MailActionExecuter.PARAM_SUBJECT, "OK");        
+			mailAction.setParameterValue(MailActionExecuter.PARAM_TO, "khanhthinh.45a4@gmail.com");
+			mailAction.setParameterValue(MailActionExecuter.PARAM_TEXT, "OK");        
+			this.actionService.executeAction(mailAction, null);
+			
 			String jsonString = obj.toString();
 			logger.info(jsonString);
 			System.out.println("I was called!");
@@ -95,5 +172,25 @@ public class EsignAction extends AbstractWebScript {
 		}
 
 	}
+	
+	public byte[] getNodeContent(NodeRef nodeRefer) {
+        byte[] data = new byte[bytesize];
+
+        // Reading the node content
+        ContentReader contentReader = serviceRegistry.getContentService().getReader(
+                nodeRefer, ContentModel.PROP_CONTENT);
+
+        actionedUponContentReader = contentReader;
+        InputStream is = contentReader.getContentInputStream();
+
+        // Conver input stream to bytes
+        try {
+            data = this.converToByteArray(is);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return data;
+    }
 
 }
