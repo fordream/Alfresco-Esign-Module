@@ -1,6 +1,5 @@
 
 /****************************************************************************** * 
-E-Learning GateIn System is e-learning system based on GateIn Portal.
 * Copyright (C) 2013   Nguyen Khanh Thinh, Nguyen Dinh Nien Contributors
 * This program is free software; you can redistribute it and/or 
 * modify it under the terms of the GNU General Public License 
